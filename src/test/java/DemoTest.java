@@ -45,23 +45,24 @@ public class DemoTest {
   @Test
   public void loginSuccessTest() throws InterruptedException {
     WebDriver driver = new ChromeDriver();
-    driver.get("https://deens-master.now.sh/login");
+//    driver.get("https://deens-master.now.sh/login");
+    driver.get("https://deens.com/login");
     driver.findElement(By.cssSelector("#email")).sendKeys("valery.kells0202@gmail.com");
     driver.findElement(By.cssSelector("#password")).sendKeys("Testing12345");
-    driver.findElement(By.cssSelector("[data-testid='loginSubmit']")).click();
+    driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-    Thread.sleep(4000);
+    Thread.sleep(6000);
     driver.navigate().refresh();
 
 //    Assertion
-    Assert.assertTrue(driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu_AvatarWrapper']")).isDisplayed());
+    Assert.assertTrue(driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu__AvatarWrapper']")).isDisplayed());
     driver.quit();
   }
 
   @Test
   public void signUpSuccessTest() throws InterruptedException {
     WebDriver driver = new ChromeDriver();
-    driver.get("https://deens-master.now.sh/register");
+    driver.get("https://deens.com/register");
 
     Random randomGenerator = new Random();
     int randomInt = randomGenerator.nextInt(1000);
@@ -69,14 +70,16 @@ public class DemoTest {
     driver.findElement(By.cssSelector("#username")).sendKeys("username" + randomInt);
     driver.findElement(By.cssSelector("#email")).sendKeys("username" + randomInt + "@gmail.com");
     driver.findElement(By.cssSelector("#password")).sendKeys("Testing12345");
-
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-    Thread.sleep(4000);
-    driver.navigate().refresh();
+    Thread.sleep(5000);
+
+    WebElement imageDiv = driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu__AvatarWrapper']"));
+
+    String img_text = imageDiv.findElement(By.tagName("img")).getAttribute("alt");
 
 //    Assertion
-    Assert.assertTrue(driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu_AvatarWrapper']")).isDisplayed());
+    Assert.assertEquals(img_text, "user avatar");
     driver.quit();
   }
 
