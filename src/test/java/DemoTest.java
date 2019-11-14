@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class DemoTest {
 
   @Test
-  public void incorrectPassAndEmail() {
+  public void incorrectPassAndEmailTest() {
     WebDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("https://deens-master.now.sh");
