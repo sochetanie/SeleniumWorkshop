@@ -14,7 +14,9 @@ public class DemoTest {
   public void incorrectPassAndEmail() {
     WebDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.get("https://deens-master.now.sh/login");
+    driver.get("https://deens-master.now.sh");
+
+    driver.findElement(By.cssSelector("a[href*='login']")).click();
 
     WebElement email = driver.findElement(By.cssSelector("#email"));
     email.sendKeys("valery@gmail.com");
