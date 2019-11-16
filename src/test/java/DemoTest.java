@@ -3,122 +3,123 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class DemoTest {
+  private static WebDriver driver;
+
+  private static By email = By.cssSelector("#email");
+  private static By pass = By.cssSelector("#password");
+  private static By username = By.cssSelector("#username");
+  private static By loginButton = By.cssSelector("[data-testid='loginSubmit']");
+  private static By errorMessage = By.cssSelector(".ui.error.message p");
+
+  @BeforeMethod
+  public void setUp() {
+    driver = new ChromeDriver();
+  }
+
+  @AfterMethod
+  public void close() {
+    driver.close();
+    driver.quit();
+  }
 
   @Test
   public void incorrectPassAndEmailTest() {
-    WebDriver driver = new ChromeDriver();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("https://deens-master.now.sh");
-
     driver.findElement(By.cssSelector("a[href*='login']")).click();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-    WebElement email = driver.findElement(By.cssSelector("#email"));
-    email.sendKeys("valery@gmail.com");
-    WebElement pass = driver.findElement(By.cssSelector("#password"));
-    pass.sendKeys("Testing123");
-    driver.findElement(By.cssSelector("[data-testid='loginSubmit']")).click();
-    WebElement errorMessage = driver.findElement(By.cssSelector(".ui.error.message p"));
-    String errorMessageText = errorMessage.getText();
+    driver.findElement(email).sendKeys("valery@gmail.com");
+    driver.findElement(pass).sendKeys("Testing123");
+    driver.findElement(loginButton).click();
 
-    Assert.assertEquals(errorMessageText, "Wrong email or password.");
-    driver.quit();
+//    Assertion
+    Assert.assertEquals(driver.findElement(errorMessage).getText(), "Wrong email or password.");
   }
 
   @Test
   public void loginEmptyParametrsTest() {
-    WebDriver driver = new ChromeDriver();
     driver.get("https://deens-master.now.sh/login");
+    driver.findElement(loginButton).click();
 
-    WebElement loginButton = driver.findElement(By.cssSelector("[data-testid='loginSubmit']"));
-    loginButton.click();
-    WebElement errorMessage = driver.findElement(By.cssSelector(".ui.error.message p"));
-    String errorMessageText = errorMessage.getText();
-
-    Assert.assertEquals(errorMessageText, "Empty email or password");
-    driver.quit();
+//    Assertion
+    Assert.assertEquals(driver.findElement(errorMessage).getText(), "Empty email or password");
   }
 
   @Test
   public void loginSuccessTest() throws InterruptedException {
-    WebDriver driver = new ChromeDriver();
 //    driver.get("https://deens-master.now.sh/login");
     driver.get("https://deens.com/login");
-    driver.findElement(By.cssSelector("#email")).sendKeys("valery.kells0202@gmail.com");
-    driver.findElement(By.cssSelector("#password")).sendKeys("Testing12345");
+
+    driver.findElement(email).sendKeys("valery.kells0202@gmail.com");
+    driver.findElement(pass).sendKeys("Testing12345");
+
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-    Thread.sleep(6000);
+//    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    Thread.sleep(5000);
     driver.navigate().refresh();
 
 //    Assertion
     Assert.assertTrue(driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu__AvatarWrapper']")).isDisplayed());
-    driver.quit();
   }
 
   @Test
   public void signUpSuccessTest() throws InterruptedException {
-    WebDriver driver = new ChromeDriver();
     driver.get("https://deens.com/register");
 
     Random randomGenerator = new Random();
     int randomInt = randomGenerator.nextInt(1000);
 
-    driver.findElement(By.cssSelector("#username")).sendKeys("username" + randomInt);
-    driver.findElement(By.cssSelector("#email")).sendKeys("username" + randomInt + "@gmail.com");
-    driver.findElement(By.cssSelector("#password")).sendKeys("Testing12345");
+    driver.findElement(username).sendKeys("username" + randomInt);
+    driver.findElement(email).sendKeys("username" + randomInt + "@gmail.com");
+    driver.findElement(pass).sendKeys("Testing12345");
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-    Thread.sleep(5000);
-
+//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    Thread.sleep(6000);
     WebElement imageDiv = driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu__AvatarWrapper']"));
 
     String img_text = imageDiv.findElement(By.tagName("img")).getAttribute("alt");
 
 //    Assertion
     Assert.assertEquals(img_text, "user avatar");
-    driver.quit();
   }
 
   @Test
   public void signUpInvalidEmailTest() {
-    WebDriver driver = new ChromeDriver();
     driver.get("https://deens-master.now.sh/register");
 
     Random randomGenerator = new Random();
     int randomInt = randomGenerator.nextInt(1000);
 
-    driver.findElement(By.cssSelector("#username")).sendKeys("username" + randomInt);
-    driver.findElement(By.cssSelector("#email")).sendKeys("username" + randomInt);
-    driver.findElement(By.cssSelector("#password")).sendKeys("Testing12345");
+    driver.findElement(username).sendKeys("username" + randomInt);
+    driver.findElement(email).sendKeys("username" + randomInt);
+    driver.findElement(pass).sendKeys("Testing12345");
 
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
-
-    WebElement errorMessage = driver.findElement(By.cssSelector(".ui.message"));
-    String errorMessageText = errorMessage.getText();
+    String errorMessageText = driver.findElement(By.cssSelector(".ui.message")).getText();
 
 //    Assertion
     Assert.assertEquals(errorMessageText, "Please enter a valid email address");
-    driver.quit();
   }
 
   @Test
   public void signUpEmptyCredentialsTest() {
-    WebDriver driver = new ChromeDriver();
     driver.get("https://deens-master.now.sh/register");
 
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
-    WebElement errorMessage = driver.findElement(By.cssSelector(".ui.message"));
-    String errorMessageText = errorMessage.getText();
+    String errorMessageText = driver.findElement(By.cssSelector(".ui.message")).getText();
 
 //    Assertion
     Assert.assertEquals(errorMessageText, "Password must be at least 8 characters long");
-    driver.quit();
   }
 
 
