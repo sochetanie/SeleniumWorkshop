@@ -1,34 +1,18 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class DemoTest {
-  private static WebDriver driver;
+public class DemoTest extends BaseTest {
 
   private static By email = By.cssSelector("#email");
   private static By pass = By.cssSelector("#password");
   private static By username = By.cssSelector("#username");
   private static By loginButton = By.cssSelector("[data-testid='loginSubmit']");
   private static By errorMessage = By.cssSelector(".ui.error.message p");
-
-  @BeforeMethod
-  public void setUp() {
-    driver = new ChromeDriver();
-  }
-
-  @AfterMethod
-  public void close() {
-    driver.close();
-    driver.quit();
-  }
 
   @Test
   public void incorrectPassAndEmailTest() {
@@ -45,7 +29,7 @@ public class DemoTest {
   }
 
   @Test
-  public void loginEmptyParametrsTest() {
+  public void loginEmptyParametersTest() {
     driver.get("https://deens-master.now.sh/login");
     driver.findElement(loginButton).click();
 
@@ -55,7 +39,6 @@ public class DemoTest {
 
   @Test
   public void loginSuccessTest() throws InterruptedException {
-//    driver.get("https://deens-master.now.sh/login");
     driver.get("https://deens.com/login");
 
     driver.findElement(email).sendKeys("valery.kells0202@gmail.com");
@@ -63,7 +46,6 @@ public class DemoTest {
 
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-//    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     Thread.sleep(5000);
     driver.navigate().refresh();
 
@@ -83,7 +65,6 @@ public class DemoTest {
     driver.findElement(pass).sendKeys("Testing12345");
     driver.findElement(By.cssSelector(".ui.large.fluid.button.green-btn.pl-btn")).click();
 
-//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     Thread.sleep(6000);
     WebElement imageDiv = driver.findElement(By.cssSelector("[class*='DesktopDropDownMenu__AvatarWrapper']"));
 
