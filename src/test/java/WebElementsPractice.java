@@ -58,8 +58,8 @@ public class WebElementsPractice {
   }
 
   public static void main(String[] args) {
-//    selectOptions();
-//    checkBoxes();
+    selectOptions();
+    checkBoxes();
     alerts();
   }
 

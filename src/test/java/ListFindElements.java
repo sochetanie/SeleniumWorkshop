@@ -14,6 +14,8 @@ public class ListFindElements extends BaseTest {
     driver.get("https://deens.com/");
     WebElement elem = driver.findElement(By.cssSelector("a[href*='fun-getaway-with-friends-in-london']"));
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
+
+//    driverWait.until(ExpectedConditions.elementToBeClickable(elem));
     Thread.sleep(500);
     elem.click();
 
@@ -29,13 +31,14 @@ public class ListFindElements extends BaseTest {
       Thread.sleep(1000);
 
       String titleFromPLP = allActivities.get(i).getText();
-      System.out.println("#"+i+".title: " + titleFromPLP);
+//      System.out.println("#"+i+".titleFromPLP: " + titleFromPLP);
+//      driverWait.until(ExpectedConditions.elementToBeClickable(allActivities.get(i)));
       allActivities.get(i).click();
       Thread.sleep(6000);
 
-      String header = driver.findElement(By.cssSelector("[class*='Service__HeaderWrap'] h2")).getText();
-      System.out.println("#"+i+".header: " + header);
-      Assert.assertEquals(titleFromPLP, header);
+      String title = driver.findElement(By.cssSelector("[class*='Service__HeaderWrap'] h2")).getText();
+//      System.out.println("#"+i+".title: " + title);
+      Assert.assertEquals(titleFromPLP, title);
       driver.navigate().back();
     }
   }

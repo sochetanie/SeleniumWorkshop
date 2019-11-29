@@ -4,8 +4,18 @@
 <suite name="TestNg Example">
 
     <test name="Example Test" preserve-order="false">
+
+        <!--        <groups>-->
+        <!--            <run>-->
+        <!--                <include name=""/>-->
+        <!--                <exclude name=""/>-->
+        <!--            </run>-->
+        <!--        </groups>-->
+        <!--        <parameter name="url" value="login"/>-->
         <classes>
-            <class name="DemoTest"/>
+            <class name="Login_SignUp_Test"/>
+            <class name="ListFindElements"/>
+            <class name="TripListingDetails"/>
         </classes>
     </test>
 </suite>

@@ -5,8 +5,13 @@
     <classes>
       <class name="Login_SignUp_Test">
         <methods>
+          <include name="signUpEmptyCredentialsTest"/>
+          <include name="incorrectPassAndEmailTest"/>
+          <include name="signUpInvalidEmailTest"/>
+          <include name="loginEmptyParametersTest"/>
           <include name="setUp"/>
           <include name="signUpSuccessTest"/>
+          <include name="loginSuccessTest"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Login_SignUp_Test -->
