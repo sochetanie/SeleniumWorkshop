@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression suite">
+    <test name="Regression tests">
+        <classes>
+            <class name="Login_SignUp_Test"/>
+            <class name="ListFindElements"/>
+            <class name="TripListingDetails"/>
+            <class name="WebElementsPractice"/>
+        </classes>
+    </test>
+</suite>

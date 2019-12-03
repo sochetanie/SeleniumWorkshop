@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNg Example">
+
+    <test name="Example Test" preserve-order="false">
+
+        <!--        <groups>-->
+        <!--            <run>-->
+        <!--                <include name=""/>-->
+        <!--                <exclude name=""/>-->
+        <!--            </run>-->
+        <!--        </groups>-->
+        <!--        <parameter name="url" value="login"/>-->
+        <classes>
+            <class name="Login_SignUp_Test"/>
+            <class name="ListFindElements"/>
+            <class name="TripListingDetails"/>
+        </classes>
+    </test>
+</suite>
