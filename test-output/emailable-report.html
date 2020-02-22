@@ -25,81 +25,18 @@ td,th {border:1px solid #009;padding:.25em .5em}
 <body>
 <table cellspacing="0" cellpadding="0" class="testOverview">
 <tr><th>Test</th><th>Methods<br/>Passed</th><th>Scenarios<br/>Passed</th><th># skipped</th><th># failed</th><th>Total<br/>Time</th><th>Included<br/>Groups</th><th>Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em"><a href="#t1">Smoke tests</a></td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">3</td><td class="numi">15.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em"><a href="#t1">workshop.automation</a></td><td class="numi">3</td><td class="numi">3</td><td class="numi">0</td><td class="numi">0</td><td class="numi">34.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="methodOverview" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr id="t1"><th colspan="5">Smoke tests &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="2">Login_SignUp_Test</td><td><a href="#m1"><b>loginSuccessTest</b>  </a></td><td class="numi">1</td><td>1575070198922</td><td class="numi">2341</td></tr><tr class="failedodd"><td><a href="#m2"><b>signUpSuccessTest</b>  </a></td><td class="numi">1</td><td>1575070203136</td><td class="numi">1683</td></tr>
-<tr class="failedeven"><td>TripListingDetails</td><td><a href="#m3"><b>verifyCountOfDays</b>  </a></td><td class="numi">1</td><td>1575070206529</td><td class="numi">3328</td></tr>
+<tr id="t1"><th colspan="5">workshop.automation &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="3">StudioPageTest</td><td><a href="#m1"><b>getFirstSearchResult</b>  </a></td><td class="numi">1</td><td>1582412233842</td><td class="numi">12449</td></tr><tr class="passedodd"><td><a href="#m2"><b>getLocationsTodayHours</b>  </a></td><td class="numi">1</td><td>1582412248513</td><td class="numi">7274</td></tr><tr class="passedodd"><td><a href="#m3"><b>getScheduledByPerson</b>  </a></td><td class="numi">1</td><td>1582412257680</td><td class="numi">6502</td></tr>
 </table>
-<h1>Smoke tests</h1>
-<h2 id="m1">TripListingDetails:verifyCountOfDays</h2>
-<div>
-<div class="stacktrace">org.openqa.selenium.NoSuchElementException: Cannot locate an element using css selector=a[href*=&apos;fun-getaway-with-friends-in-london&apos;]
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;Allas-Air.home&apos;, ip: &apos;192.168.1.6&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.1&apos;, java.version: &apos;1.8.0_161&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at TripListingDetails.verifyCountOfDays(TripListingDetails.java:16)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 26 stack frames</div>
-</div>
+<h1>workshop.automation</h1>
+<h2 id="m1">StudioPageTest:getScheduledByPerson</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m2">Login_SignUp_Test:loginSuccessTest</h2>
-<div>
-<div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#email&quot;}
-  (Session info: chrome=78.0.3904.108)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;Allas-Air.home&apos;, ip: &apos;192.168.1.6&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.1&apos;, java.version: &apos;1.8.0_161&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/g_/87sfx2gj0hg...}, goog:chromeOptions: {debuggerAddress: localhost:63897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6a3d0f4dfed682112f5830cc8438c369
-*** Element info: {Using=css selector, value=#email}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at Login_SignUp_Test.loginSuccessTest(Login_SignUp_Test.java:54)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 30 stack frames</div>
-</div>
+<h2 id="m2">StudioPageTest:getLocationsTodayHours</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m3">Login_SignUp_Test:signUpSuccessTest</h2>
-<div>
-<div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#username&quot;}
-  (Session info: chrome=78.0.3904.108)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;Allas-Air.home&apos;, ip: &apos;192.168.1.6&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.1&apos;, java.version: &apos;1.8.0_161&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/g_/87sfx2gj0hg...}, goog:chromeOptions: {debuggerAddress: localhost:63929}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: bf1e65fa4791a8dd95214b183c1b84dc
-*** Element info: {Using=css selector, value=#username}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at Login_SignUp_Test.signUpSuccessTest(Login_SignUp_Test.java:71)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 30 stack frames</div>
-</div>
+<h2 id="m3">StudioPageTest:getFirstSearchResult</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

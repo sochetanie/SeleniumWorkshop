@@ -17,21 +17,3 @@ dependencies {
             version: '3.141.59'
     testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
 }
-
-test {
-    useTestNG() {
-        suites 'src/test/resources/TestNG.xml'
-    }
-}
-
-task smoke(type: Test) {
-    useTestNG() {
-        suites 'src/test/resources/Smoke.xml'
-    }
-}
-
-task regression(type: Test) {
-    useTestNG() {
-        suites 'src/test/resources/Regression.xml'
-    }
-}

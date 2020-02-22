@@ -3,18 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default Suite]">
   <test thread-count="5" name="workshop.automation(failed)">
     <classes>
-      <class name="Login_SignUp_Test">
+      <class name="StudioPageTest">
         <methods>
-          <include name="signUpEmptyCredentialsTest"/>
-          <include name="incorrectPassAndEmailTest"/>
-          <include name="signUpInvalidEmailTest"/>
-          <include name="loginEmptyParametersTest"/>
           <include name="setUp"/>
-          <include name="signUpSuccessTest"/>
-          <include name="loginSuccessTest"/>
+          <include name="getLocationsTodayHours"/>
+          <include name="getFirstSearchResult"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- Login_SignUp_Test -->
+      </class> <!-- StudioPageTest -->
     </classes>
   </test> <!-- workshop.automation(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

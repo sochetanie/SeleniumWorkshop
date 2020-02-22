@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNg Example">
-    <test name="Smoke tests" preserve-order="false">
+<suite name="Smoke Test">
+
+    <test name="Smoke tests Success Login and SignUp">
         <classes>
             <class name="Login_SignUp_Test">
                 <methods>
                     <include name="loginSuccessTest"/>
-                </methods>
-            </class>
-            <class name="Login_SignUp_Test">
-                <methods>
                     <include name="signUpSuccessTest"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+
+    <test name="Smoke tests Trip Listing Details" preserve-order="false">
+        <classes>
             <class name="TripListingDetails">
                 <methods>
                     <include name="verifyCountOfDays"/>
@@ -21,4 +23,5 @@
             </class>
         </classes>
     </test>
+
 </suite>
